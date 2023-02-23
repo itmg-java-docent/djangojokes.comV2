@@ -121,7 +121,19 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
+# static files cannot be served when debug = False see also:
+# https://duckduckgo.com/?t=ffab&q=debug+false++django+cannot+get+images&ia=web
+# https://stackoverflow.com/questions/38885761/an-easy-way-to-show-images-in-django-on-deployment-debug-false
+# https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#cmdoption-runserver--insecure
+
+
 STATIC_URL = 'static/'
+
+STATICFILES_DIRS = [
+BASE_DIR / 'static',
+]
+
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
